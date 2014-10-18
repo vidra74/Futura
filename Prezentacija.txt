@@ -1,0 +1,20 @@
+Aplikacija ::Futura_StartUp
+
+Sustav za organizaciju natjecanja, obraèunavanje i prikazivanje rezultata. Koristi se u sportskim klubovima za:
+- Voðenje evidencije igraèa unutar kluba.
+- Održavanje skladište obrazaca turnira koji se koriste za voðenje natjecanja. Obrazac se sastoji od informacija tko igra s kim, kada i koliko puta te kako se vode rezultati. 
+- Voðenje evidencije odigranih turnira
+- Voðenje evidencije igranja igraèa
+- Voðenje turnira: prijava igraèa, prijava rezultata, obrada rezultata uživo
+- Izraèun trenutnih i konaènih rezultata
+- Prikaz trenutnih rezultata i prikaz konaènih rezultata
+- Prikaz arhive rezultata igraèa
+- Prikaz arhive natjecatelja
+- Pristup podacima preko web suèelja, mobilne aplikacije.
+- Slanje podataka preko web suèelja (download liste), mobilne aplikacije (pregledi), mail-a.
+- Kontaktiranje prijavljenih natjecatelja o informacijama tokom turnira
+- Primanje obavijesti i problema od natjecatelja
+
+Aplikacija omoguæava voðenje turnira uz pomoæ smartphone ureðaja te prikaz rezultata preko weba.
+Nije potreban nikakav hardware osim privatnih smartphone ureðaja natjecatelja i administratora turnira.
+Rezultati æe se moæi povezivati sa drugim obraèunskim programima uobièajenim u sportu natjecanja.
