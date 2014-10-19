@@ -1,0 +1,15 @@
+Natjecatelji se unose kroz web aplikaciju.
+[17:12:18] Frano Janèiæ: U aplikaciji se odabire opcija 'Novi natjecatelj'
+[17:12:28] Frano Janèiæ: Otvara se forma za unos:
+[17:12:32] Frano Janèiæ: 1. Ime
+[17:12:35] Frano Janèiæ: 2. Prezime
+[17:12:44] Frano Janèiæ: 3. ID saveza
+[17:12:48] Frano Janèiæ: 4. mail adresa
+[17:12:51] Frano Janèiæ: 5. lozinka
+[17:12:58] Frano Janèiæ: 6. Upload slike
+[17:13:17] Frano Janèiæ: Obavezni su podaci ime, prezime, mail i lozinka.
+[17:13:43] Frano Janèiæ: Po spremanju unosa novi natjecatelj se kreira u bazi i dodjeljuje mu se interni ID
+[17:13:56] Frano Janèiæ: Da li sam nešto zaboravio ?
+[17:14:10] Frano Janèiæ: Aha, a gdje unosimo èlanstvo kluba?
+[17:14:21] Frano Janèiæ: Prièa 1b:
+[17:14:45] Frano Janèiæ: Unos èlanstva u klubu: odaberi klub i padajuæi Combo box sa popisom klubova
