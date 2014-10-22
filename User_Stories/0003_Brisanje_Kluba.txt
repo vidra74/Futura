@@ -1,0 +1,1 @@
+Klub se ne može izbrisati ako ima već natjecanja. Brisati se može samo klub bez natjecanja i bez članova.
