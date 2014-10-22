@@ -1,0 +1,12 @@
+Klubovi se unose kroz web aplikaciju.
+Unos kluba:
+U aplikaciji se odabire opcija 'Novi klub'. Osoba koja odabire tu opciju bi bila admin kluba.
+1. Ime kluba
+2. Password 
+3. ID saveza
+4.upload slike
+5.Sport kluba
+
+Obavezni su podaci: ime kluba, password.
+Nakon toga: -klubu bi se dodjelio interni ID
+            -klub bi se dodao u combo box kao opciju za clanstvo u klubu
