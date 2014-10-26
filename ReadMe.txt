@@ -1,4 +1,6 @@
-﻿18.10.2014:
+﻿26.10.2014:
+	Dodao ScorerDemo Android projekt
+18.10.2014:
 	User Stories - natjecatelji
 	Tekst prezentacije
 14.10.2014: 	
