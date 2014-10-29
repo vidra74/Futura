@@ -1,3 +1,5 @@
+25.10.2014:
+	Napravljena forma unosa kluba i spremanje podataka u bazu.
 ﻿18.10.2014:
 	User Stories - natjecatelji
 	Tekst prezentacije
