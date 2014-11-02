@@ -1,4 +1,6 @@
-﻿26.10.2014:
+﻿02.11.2014:
+	Prezentacija projekta - slajdovi u ppt i odf formatu.
+26.10.2014:
 	Dodao ScorerDemo Android projekt
 18.10.2014:
 	User Stories - natjecatelji
