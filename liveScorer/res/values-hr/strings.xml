@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">liveScorer</string>
+    <string name="action_settings">Postavke</string>
+    <string name="edit_message">Unesi tekst</string>
+    <string name="button_send">Šalji</string>
+    <string name="title_activity_main">GlavnaAktivnost</string>
+    <string name="title_activity_display_message">PrikažiPorukuAktivnosti</string>
+    <string name="action_search">Traži</string>
+    <string name="button_Dialog">Dijalog</string>
+    <string name="button_Progress">Napredak</string>
+    <string name="button_Download">Skidanje</string>
+    <string name="Username">Korisnik</string>
+    <string name="Password">Lozinka</string>
+    <string name="LoginGet">Prijava - Get</string>
+    <string name="LoginPost">Prijava - Post</string>
+    <string name="App">liveScorer prijava</string>
+    <string name="LoginStatus">Prijava status</string>
+    <string name="LoginRole">Uloga</string>
+    <string name="Status">Nije prijavljen</string>
+    <string name="Role">Nije dodjeljena</string>
+    <string name="method">Tip prijave</string>
+    <string name="Choose">Odaberi tip</string>
+</resources>

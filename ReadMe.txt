@@ -1,4 +1,9 @@
-﻿02.11.2014:
+﻿30.11.2014: 
+	Kreiran liveScorer projekt. Prebačeno logiranje na mysql server na njega.
+	Skripte za automatsko ažuriranje projekta.
+	Izbrisan stari Android projekt. Neupotrebljiv, sa krivim lib pathovima i folderom koji se ne da kompajlirati.
+
+02.11.2014:
 	Prezentacija projekta - slajdovi u ppt i odf formatu.
 	Razrada i sraćivanje teksta.
 26.10.2014:
