@@ -21,4 +21,8 @@
     <string name="Role">Nije dodjeljena</string>
     <string name="method">Tip prijave</string>
     <string name="Choose">Odaberi tip</string>
+    <string name="act_glavni_name">liveScorer izbornik</string>
+    <string name="button_Klub">Podaci o klubu</string>
+    <string name="button_Podaci">Podaci o igraču</string>
+    <string name="button_Natjecanje">Natjecanja</string>
 </resources>

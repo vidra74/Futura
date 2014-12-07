@@ -2,8 +2,10 @@ package com.example.livescorer;
 
 import com.example.livescorer.R;
 import com.example.livescorer.SignInActivity;
+import com.example.livescorer.GlavniIzbornikActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,7 +16,7 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 	   
 	private EditText usernameField,passwordField;
-	private TextView status,role,method;
+	private TextView status,role;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,6 @@ public class MainActivity extends Activity {
 	      passwordField = (EditText)findViewById(R.id.editText2);
 	      status = (TextView)findViewById(R.id.textView6);
 	      role = (TextView)findViewById(R.id.textView7);
-	      method = (TextView)findViewById(R.id.textView9);
 	}
 
 	@Override
@@ -49,16 +50,18 @@ public class MainActivity extends Activity {
 	public void login(View view){
 		      String username = usernameField.getText().toString();
 		      String password = passwordField.getText().toString();
-		      method.setText("Get Method");
 		      new SignInActivity(this,status,role,0).execute(username,password);
+		      
+		      if (role.getText().toString() == "") {
+		    	  return;
+		      }
+		      
+		      if (role.getText().toString().substring(0,9) == "Exception:") {
+		    	  return;
+		      }
+		      
+		      startActivity(new Intent(this, GlavniIzbornikActivity.class));
 
 	}
 	   
-	public void loginPost(View view){
-		      String username = usernameField.getText().toString();
-		      String password = passwordField.getText().toString();
-		      method.setText("Post Method");
-		      new SignInActivity(this,status,role,1).execute(username,password);
-
-	}
 }

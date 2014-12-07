@@ -22,5 +22,9 @@
     <string name="Role">Not assigned</string>
     <string name="method">Login Method</string>
     <string name="Choose">Choose Method</string>
+    <string name="act_glavni_name">liveScorer menu</string>
+    <string name="button_Klub">Club data</string>
+    <string name="button_Podaci">Player data</string>
+    <string name="button_Natjecanje">Tournament data</string>
 
 </resources>
