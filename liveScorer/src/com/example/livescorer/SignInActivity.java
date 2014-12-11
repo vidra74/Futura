@@ -14,6 +14,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.TextView;
 
@@ -21,11 +22,15 @@ public class SignInActivity  extends AsyncTask<String,Void,String>{
 
    private TextView statusField,roleField;
    private Context context;
+   private liveScorerObjekt SO;
+   
    public SignInActivity(Context context,TextView statusField,
-   TextView roleField,int flag) {
+   TextView roleField, liveScorerObjekt lSO) {
       this.context = context;
       this.statusField = statusField;
       this.roleField = roleField;
+      this.SO = lSO;
+      this.SO.SetLogined(false);
    }
 
    protected void onPreExecute(){
@@ -56,17 +61,24 @@ public class SignInActivity  extends AsyncTask<String,Void,String>{
             while((line = reader.readLine()) != null)
             {
                sb.append(line);
+               this.SO.SetLogined(true);
                break;
             }
             return sb.toString();
          }catch(Exception e){
         	 e.printStackTrace();
+        	 this.SO.SetLogined(false);
         	 return new String("Exception: " + e.getMessage());
          }
       }
    @Override
    protected void onPostExecute(String result){
-      this.statusField.setText("Login Successful");
-      this.roleField.setText(result);
+	  
+	  this.SO.setRoleText(result); 
+	  if (this.SO.IsLogined()){
+		  this.statusField.setText("Login Successful");
+		  this.roleField.setText(result); 
+	  }
+	  
    }
 }
