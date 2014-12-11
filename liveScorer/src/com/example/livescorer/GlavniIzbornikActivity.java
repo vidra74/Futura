@@ -14,6 +14,8 @@ public class GlavniIzbornikActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.glavni_izbornik);
         Korisnik = (TextView)findViewById(R.id.tvKorisnik);
+        
+        Korisnik.setText(getIntent().getStringExtra("LOGIN"));
     }
 	
 }

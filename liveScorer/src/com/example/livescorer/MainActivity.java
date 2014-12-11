@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	   
@@ -48,20 +49,18 @@ public class MainActivity extends Activity {
 	}
 	
 	public void login(View view){
-		      String username = usernameField.getText().toString();
-		      String password = passwordField.getText().toString();
-		      new SignInActivity(this,status,role,0).execute(username,password);
-		      
-		      if (role.getText().toString() == "") {
-		    	  return;
-		      }
-		      
-		      if (role.getText().toString().substring(0,9) == "Exception:") {
-		    	  return;
-		      }
-		      
-		      startActivity(new Intent(this, GlavniIzbornikActivity.class));
-
+		
+		String username = usernameField.getText().toString();
+		String password = passwordField.getText().toString();
+		SignInActivity SIA = new SignInActivity(this,status,role,0);
+		SIA.execute(username,password);
+		Toast.makeText(this, "Rezultat : " + SIA.RoleResult + " Flag : " + Integer.toString(SIA.loginFlag), Toast.LENGTH_LONG).show();
+		if (SIA.loginFlag == 1){ 
+			Intent loginResult = new Intent(this, GlavniIzbornikActivity.class);
+			
+			// loginResult.putExtra("LOGIN", (String)SIA.RoleResult);
+			startActivity(loginResult);
+		}
 	}
 	   
 }

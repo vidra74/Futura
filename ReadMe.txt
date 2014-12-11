@@ -1,4 +1,7 @@
-﻿07.12.2014:
+﻿11.12.2014:
+	Komunikacija između aktivnosti.
+
+07.12.2014:
 	Prebacio projekt na novi sajt.
 	Logiranje, instalacija, glavni meni.
 

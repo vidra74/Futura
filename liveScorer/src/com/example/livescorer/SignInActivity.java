@@ -14,6 +14,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.TextView;
 
@@ -21,11 +22,15 @@ public class SignInActivity  extends AsyncTask<String,Void,String>{
 
    private TextView statusField,roleField;
    private Context context;
+   public static int loginFlag;
+   public static String RoleResult;
+   
    public SignInActivity(Context context,TextView statusField,
    TextView roleField,int flag) {
       this.context = context;
       this.statusField = statusField;
       this.roleField = roleField;
+      this.loginFlag = 0;
    }
 
    protected void onPreExecute(){
@@ -56,17 +61,32 @@ public class SignInActivity  extends AsyncTask<String,Void,String>{
             while((line = reader.readLine()) != null)
             {
                sb.append(line);
+               this.loginFlag = 1;
                break;
             }
             return sb.toString();
          }catch(Exception e){
         	 e.printStackTrace();
+        	 this.loginFlag = -1;
         	 return new String("Exception: " + e.getMessage());
          }
       }
    @Override
    protected void onPostExecute(String result){
-      this.statusField.setText("Login Successful");
-      this.roleField.setText(result);
+	   
+	   RoleResult = result;
+	   if (this.loginFlag == 1) {
+		   this.statusField.setText("Login Successful");
+		   this.roleField.setText(result);
+	   }
+	   if (this.loginFlag == 0) {
+		   this.statusField.setText("Login failed");
+		   this.roleField.setText("");
+	   }
+	   if (this.loginFlag == -1) {
+		   this.statusField.setText(result);
+		   this.roleField.setText("");
+	   }
+      
    }
 }
