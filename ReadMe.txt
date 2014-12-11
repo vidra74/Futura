@@ -1,4 +1,7 @@
-﻿11.12.2014:
+﻿12.11.2014:
+	Ispravno logiranje
+
+11.12.2014:
 	Komunikacija između aktivnosti.
 
 07.12.2014:

@@ -7,6 +7,8 @@ import com.example.livescorer.GlavniIzbornikActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +21,7 @@ public class MainActivity extends Activity {
 	private EditText usernameField,passwordField;
 	private TextView status,role;
 	private liveScorerObjekt lSO;
+	private static Handler handler;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,8 @@ public class MainActivity extends Activity {
 	      role = (TextView)findViewById(R.id.textView7);
 	      
 	      lSO = new liveScorerObjekt();
+	      
+
 	}
 
 	@Override
@@ -56,15 +61,23 @@ public class MainActivity extends Activity {
 		String username = usernameField.getText().toString();
 		String password = passwordField.getText().toString();
 
-		SignInActivity SIA = new SignInActivity(this,status,role,0);
+		SignInActivity SIA = new SignInActivity(this,status,role,lSO);
 		SIA.execute(username,password);
-		Toast.makeText(this, "Rezultat : " + SIA.RoleResult + " Flag : " + Integer.toString(SIA.loginFlag), Toast.LENGTH_LONG).show();
-		if (SIA.loginFlag == 1){ 
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if (lSO.IsLogined()){ 
 			Intent loginResult = new Intent(this, GlavniIzbornikActivity.class);
 			
 			// loginResult.putExtra("LOGIN", (String)SIA.RoleResult);
 			startActivity(loginResult);
 		}
+		
+
 
 	}
 	   

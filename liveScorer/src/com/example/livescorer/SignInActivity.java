@@ -90,6 +90,7 @@ public class SignInActivity  extends AsyncTask<String,Void,String>{
 	  if (this.SO.IsLogined()){
 		  this.statusField.setText("Login Successful");
 		  this.roleField.setText(result); 
+		  this.SO.setUserName(result.substring(0, result.indexOf(':')));
 	  }
 	  
    }
