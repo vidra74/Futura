@@ -18,6 +18,7 @@ public class MainActivity extends Activity {
 	   
 	private EditText usernameField,passwordField;
 	private TextView status,role;
+	private liveScorerObjekt lSO;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,8 @@ public class MainActivity extends Activity {
 	      passwordField = (EditText)findViewById(R.id.editText2);
 	      status = (TextView)findViewById(R.id.textView6);
 	      role = (TextView)findViewById(R.id.textView7);
+	      
+	      lSO = new liveScorerObjekt();
 	}
 
 	@Override
@@ -52,6 +55,7 @@ public class MainActivity extends Activity {
 		
 		String username = usernameField.getText().toString();
 		String password = passwordField.getText().toString();
+
 		SignInActivity SIA = new SignInActivity(this,status,role,0);
 		SIA.execute(username,password);
 		Toast.makeText(this, "Rezultat : " + SIA.RoleResult + " Flag : " + Integer.toString(SIA.loginFlag), Toast.LENGTH_LONG).show();
@@ -61,6 +65,7 @@ public class MainActivity extends Activity {
 			// loginResult.putExtra("LOGIN", (String)SIA.RoleResult);
 			startActivity(loginResult);
 		}
+
 	}
 	   
 }

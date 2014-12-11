@@ -22,15 +22,22 @@ public class SignInActivity  extends AsyncTask<String,Void,String>{
 
    private TextView statusField,roleField;
    private Context context;
+
    public static int loginFlag;
    public static String RoleResult;
+
+   private liveScorerObjekt SO;
+
    
    public SignInActivity(Context context,TextView statusField,
-   TextView roleField,int flag) {
+   TextView roleField, liveScorerObjekt lSO) {
       this.context = context;
       this.statusField = statusField;
       this.roleField = roleField;
-      this.loginFlag = 0;
+
+      this.SO = lSO;
+      this.SO.SetLogined(false);
+
    }
 
    protected void onPreExecute(){
@@ -61,32 +68,29 @@ public class SignInActivity  extends AsyncTask<String,Void,String>{
             while((line = reader.readLine()) != null)
             {
                sb.append(line);
-               this.loginFlag = 1;
+
+               this.SO.SetLogined(true);
+
                break;
             }
             return sb.toString();
          }catch(Exception e){
         	 e.printStackTrace();
-        	 this.loginFlag = -1;
+
+        	 this.SO.SetLogined(false);
+
         	 return new String("Exception: " + e.getMessage());
          }
       }
    @Override
    protected void onPostExecute(String result){
-	   
-	   RoleResult = result;
-	   if (this.loginFlag == 1) {
-		   this.statusField.setText("Login Successful");
-		   this.roleField.setText(result);
-	   }
-	   if (this.loginFlag == 0) {
-		   this.statusField.setText("Login failed");
-		   this.roleField.setText("");
-	   }
-	   if (this.loginFlag == -1) {
-		   this.statusField.setText(result);
-		   this.roleField.setText("");
-	   }
-      
+
+	  
+	  this.SO.setRoleText(result); 
+	  if (this.SO.IsLogined()){
+		  this.statusField.setText("Login Successful");
+		  this.roleField.setText(result); 
+	  }
+	  
    }
 }
