@@ -1,5 +1,6 @@
 ﻿14.11.2014:
 	Prebacio botune glavnog prozora na meni prikaz.
+	Fragment podaci - učitavanje.
 
 13.11.2014:
 	Sredio podatke za prikaz ekrana glavnog menija.

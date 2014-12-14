@@ -12,12 +12,10 @@
         android:text="@string/act_glavni_name"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <LinearLayout 
-    	android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:orientation="vertical"
-    	android:gravity="center" >
-    
-    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/rlFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </FrameLayout>
 
 </LinearLayout>

@@ -3,6 +3,8 @@ package com.example.livescorer;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,6 +17,9 @@ import android.widget.Toast;
 public class GlavniIzbornikActivity extends Activity {
 	
 	private TextView m_tvKorisnik;
+	private FragmentManager manager;
+	private Fragment fragment;
+	
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,9 @@ public class GlavniIzbornikActivity extends Activity {
         
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        
+        manager = getFragmentManager();
+        fragment = manager.findFragmentById(R.id.rlFragment);
     }
     
     private void PrikaziPoruku(String userPressed) {
@@ -85,7 +93,8 @@ public class GlavniIzbornikActivity extends Activity {
             return true;
         case 0:
         	PrikaziPoruku("You clicked on " + getString(R.string.button_Podaci)); 
-            return true;
+            PrikaziPodatke();
+        	return true;
         case 1:
         	PrikaziPoruku("You clicked on " + getString(R.string.button_Klub)); 
             return true;
@@ -94,6 +103,15 @@ public class GlavniIzbornikActivity extends Activity {
             return true;      
         }
         return false;
+    }
+    
+    private void PrikaziPodatke(){
+        if (fragment == null) {
+            fragment = new FragmentPodaci();
+            manager.beginTransaction()
+                .add(R.id.rlFragment, fragment)
+                .commit();
+        } 
     }
 	
 }
