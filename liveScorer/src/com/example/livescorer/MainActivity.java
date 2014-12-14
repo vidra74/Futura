@@ -7,8 +7,6 @@ import com.example.livescorer.GlavniIzbornikActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,8 +18,7 @@ public class MainActivity extends Activity {
 	   
 	private EditText usernameField,passwordField;
 	private TextView status,role;
-	private liveScorerObjekt lSO;
-	private static Handler handler;
+	private static liveScorerObjekt lSO;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,10 +67,14 @@ public class MainActivity extends Activity {
 			e.printStackTrace();
 		}
 		
+		lSO.SetLogined(SignInActivity.loginFlag);
+		lSO.setRoleText(SignInActivity.RoleResult);
+		lSO.setUserName(SignInActivity.UserName);
+		
 		if (lSO.IsLogined()){ 
 			Intent loginResult = new Intent(this, GlavniIzbornikActivity.class);
 			
-			// loginResult.putExtra("LOGIN", (String)SIA.RoleResult);
+			loginResult.putExtra("LOGIN", lSO.getRoleText());
 			startActivity(loginResult);
 		}
 		

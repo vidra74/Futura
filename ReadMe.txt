@@ -1,4 +1,7 @@
-﻿12.11.2014:
+﻿13.11.2014:
+	Sredio podatke za prikaz ekrana glavnog menija.
+
+12.11.2014:
 	Ispravno logiranje
 
 11.12.2014:

@@ -21,22 +21,16 @@ import android.widget.TextView;
 public class SignInActivity  extends AsyncTask<String,Void,String>{
 
    private TextView statusField,roleField;
-   private Context context;
 
-   public static int loginFlag;
+   public static Boolean loginFlag;
    public static String RoleResult;
-
-   private liveScorerObjekt SO;
+   public static String UserName;
 
    
    public SignInActivity(Context context,TextView statusField,
    TextView roleField, liveScorerObjekt lSO) {
-      this.context = context;
       this.statusField = statusField;
       this.roleField = roleField;
-
-      this.SO = lSO;
-      this.SO.SetLogined(false);
 
    }
 
@@ -69,7 +63,7 @@ public class SignInActivity  extends AsyncTask<String,Void,String>{
             {
                sb.append(line);
 
-               this.SO.SetLogined(true);
+               loginFlag = (true);
 
                break;
             }
@@ -77,7 +71,7 @@ public class SignInActivity  extends AsyncTask<String,Void,String>{
          }catch(Exception e){
         	 e.printStackTrace();
 
-        	 this.SO.SetLogined(false);
+        	 loginFlag = (false);
 
         	 return new String("Exception: " + e.getMessage());
          }
@@ -86,11 +80,11 @@ public class SignInActivity  extends AsyncTask<String,Void,String>{
    protected void onPostExecute(String result){
 
 	  
-	  this.SO.setRoleText(result); 
-	  if (this.SO.IsLogined()){
+	  RoleResult = (result); 
+	  if (loginFlag){
 		  this.statusField.setText("Login Successful");
 		  this.roleField.setText(result); 
-		  this.SO.setUserName(result.substring(0, result.indexOf(':')));
+		  UserName = (result.substring(0, result.indexOf(':')));
 	  }
 	  
    }
