@@ -1,4 +1,7 @@
-﻿13.11.2014:
+﻿14.11.2014:
+	Prebacio botune glavnog prozora na meni prikaz.
+
+13.11.2014:
 	Sredio podatke za prikaz ekrana glavnog menija.
 
 12.11.2014:

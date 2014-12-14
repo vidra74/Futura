@@ -18,27 +18,6 @@
     	android:orientation="vertical"
     	android:gravity="center" >
     
-    	<Button
-        	android:id="@+id/btnNatjecanje"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_marginTop="43dp"
-        	android:text="@string/button_Natjecanje" />
-
-    	<Button
-        	android:id="@+id/btnPodaci"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_marginTop="43dp"
-        	android:text="@string/button_Podaci" />
-
-    	<Button
-        	android:id="@+id/btnKlub"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_marginTop="43dp"
-        	android:text="@string/button_Klub" />
-    
     </LinearLayout>
 
 </LinearLayout>

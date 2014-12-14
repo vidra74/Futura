@@ -1,7 +1,12 @@
 package com.example.livescorer;
 
+
+import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,9 +15,6 @@ import android.widget.Toast;
 public class GlavniIzbornikActivity extends Activity {
 	
 	private TextView m_tvKorisnik;
-	private Button m_buttonNatjecanje; 
-	private Button m_buttonKlub;
-	private Button m_buttonPodaci;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,36 +23,77 @@ public class GlavniIzbornikActivity extends Activity {
         m_tvKorisnik = (TextView)findViewById(R.id.tvKorisnik);
         m_tvKorisnik.setText(getIntent().getStringExtra("LOGIN"));
         
-        m_buttonNatjecanje = (Button)findViewById(R.id.btnNatjecanje);		
-        m_buttonNatjecanje.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            	checkKeyPress("m_buttonNatjecanje");
-            }
-        });
-        
-        m_buttonKlub = (Button)findViewById(R.id.btnKlub);		
-        m_buttonKlub.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            	checkKeyPress("m_buttonKlub");
-            }
-        });
-        
-        m_buttonPodaci = (Button)findViewById(R.id.btnPodaci);		
-        m_buttonPodaci.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            	Toast.makeText(GlavniIzbornikActivity.this, "m_buttonPodaci", Toast.LENGTH_SHORT)
-                .show();
-            }
-        });
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
     
-    private void checkKeyPress(String userPressed) {
+    private void PrikaziPoruku(String userPressed) {
 
         Toast.makeText(this, userPressed, Toast.LENGTH_SHORT)
             .show();
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {    	
+        super.onCreateOptionsMenu(menu);
+        CreateMenu(menu);
+        return true;
+    }
+ 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {    
+         return MenuChoice(item);    
+    }    
+    
+    private void CreateMenu(Menu menu)
+    {
+        MenuItem mnu1 = menu.add(0, 0, 0, R.string.button_Podaci);
+        {         
+            mnu1.setIcon(R.drawable.ic_launcher);
+            mnu1.setShowAsAction(
+            	MenuItem.SHOW_AS_ACTION_IF_ROOM |
+                MenuItem.SHOW_AS_ACTION_WITH_TEXT);            
+        }
+        MenuItem mnu2 = menu.add(0, 1, 1, R.string.button_Klub);
+        {         
+            mnu2.setIcon(R.drawable.ic_launcher);            
+            mnu2.setShowAsAction(
+            	MenuItem.SHOW_AS_ACTION_IF_ROOM |
+                MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+        }
+        MenuItem mnu3 = menu.add(0, 2, 2, R.string.button_Natjecanje);
+        {         
+            mnu3.setIcon(R.drawable.ic_launcher);
+            mnu3.setShowAsAction(
+            	MenuItem.SHOW_AS_ACTION_IF_ROOM |
+                MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+        }
+
+    }
+ 
+    private boolean MenuChoice(MenuItem item)
+    {        
+        switch (item.getItemId()) {
+        case  android.R.id.home:
+        	PrikaziPoruku("You clicked on the Application icon"); 
+
+            Intent i = new Intent(this, GlavniIzbornikActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i);
+
+            return true;
+        case 0:
+        	PrikaziPoruku("You clicked on " + getString(R.string.button_Podaci)); 
+            return true;
+        case 1:
+        	PrikaziPoruku("You clicked on " + getString(R.string.button_Klub)); 
+            return true;
+        case 2:
+        	PrikaziPoruku("You clicked on " + getString(R.string.button_Natjecanje)); 
+            return true;      
+        }
+        return false;
     }
 	
 }
