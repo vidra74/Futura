@@ -5,12 +5,9 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +29,7 @@ public class GlavniIzbornikActivity extends Activity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         
         manager = getFragmentManager();
-        fragment = manager.findFragmentById(R.id.rlFragment);
+        fragment = manager.findFragmentById(R.id.rlFragContainer);
     }
     
     private void PrikaziPoruku(String userPressed) {
@@ -85,11 +82,6 @@ public class GlavniIzbornikActivity extends Activity {
         switch (item.getItemId()) {
         case  android.R.id.home:
         	PrikaziPoruku("You clicked on the Application icon"); 
-
-            Intent i = new Intent(this, GlavniIzbornikActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(i);
-
             return true;
         case 0:
         	PrikaziPoruku("You clicked on " + getString(R.string.button_Podaci)); 
@@ -106,11 +98,15 @@ public class GlavniIzbornikActivity extends Activity {
     }
     
     private void PrikaziPodatke(){
-        if (fragment == null) {
-            fragment = new FragmentPodaci();
-            manager.beginTransaction()
-                .add(R.id.rlFragment, fragment)
-                .commit();
+    	try{
+    		if (fragment == null) {
+    			fragment = new FragmentPodaci();
+    			manager.beginTransaction()
+                	.add(R.id.rlFragContainer, fragment)
+                	.commit();
+    		}	
+        } catch(Exception e) {
+       	 e.printStackTrace();
         } 
     }
 	

@@ -9,13 +9,15 @@
         android:id="@+id/tvKorisnik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="top|center_vertical"
         android:text="@string/act_glavni_name"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <FrameLayout
-        android:id="@+id/rlFragment"
+    <RelativeLayout
+        android:id="@+id/rlFragContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-    </FrameLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

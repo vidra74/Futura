@@ -7,23 +7,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
 public class FragmentPodaci extends Fragment {
-	private Podaci mPodaci;
+	Podaci mPodaci;
 	TextView mTitleField;
 	
 	public void OnCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		mPodaci = new Podaci();
+		
 	}
 	@Override
 	public View onCreateView(LayoutInflater inflater, 
 								ViewGroup parent, 
 								Bundle savedInstanceState){
 		View v = inflater.inflate(R.layout.frag_podaci,  parent, false);
+		mPodaci = new Podaci();
+        mTitleField = (TextView)v.findViewById(R.id.tvFragPodaci);
 
-        mTitleField = (TextView)v.findViewById(R.id.tvPodaci);
-        mTitleField.setText(mPodaci.getStrPodaci());
-        
+		mPodaci.setPodatak("onCreateView");
+		mTitleField.setText(mPodaci.getPodatak());		
 		return v;
 	}
 	

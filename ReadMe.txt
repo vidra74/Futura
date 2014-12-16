@@ -1,4 +1,8 @@
-﻿14.11.2014:
+﻿16.12.2014:
+	Bug je pronađen - ne postoji objekt sa podacima u scope fragmenta.
+	OnCreateView se izvršava prije OnCreate!
+
+14.11.2014:
 	Prebacio botune glavnog prozora na meni prikaz.
 	Fragment podaci - učitavanje.
 
