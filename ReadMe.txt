@@ -1,5 +1,6 @@
 ﻿21.12.2014:
 	Učitavanje kluba kao array objekata.
+	ArrayLista za podatke aplikacije.
 
 16.12.2014:
 	Bug je pronađen - ne postoji objekt sa podacima u scope fragmenta.
