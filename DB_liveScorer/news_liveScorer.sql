@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10.5
+-- version 4.0.10.6
 -- http://www.phpmyadmin.net
 --
 -- Računalo: localhost
--- Vrijeme generiranja: Pro 03, 2014 u 11:03 PM
+-- Vrijeme generiranja: Pro 21, 2014 u 10:30 PM
 -- Verzija poslužitelja: 5.6.21
 -- PHP verzija: 5.4.23
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Baza podataka: `news_liveScorer`
 --
+CREATE DATABASE IF NOT EXISTS `news_liveScorer` DEFAULT CHARACTER SET utf8 COLLATE utf8_croatian_ci;
+USE `news_liveScorer`;
 
 -- --------------------------------------------------------
 
@@ -26,21 +28,23 @@ SET time_zone = "+00:00";
 -- Tablična struktura za tablicu `Klub`
 --
 
+DROP TABLE IF EXISTS `Klub`;
 CREATE TABLE IF NOT EXISTS `Klub` (
-  `ID` int(11) NOT NULL,
-  `IME_KLUBA` varchar(100) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `IME_KLUBA` varchar(100) CHARACTER SET utf8 COLLATE utf8_croatian_ci NOT NULL,
   `ID_SPORT` int(50) NOT NULL COMMENT 'Klupski sport',
-  `ID_SAVEZ` varchar(50) NOT NULL COMMENT 'ID Kluba kod sportskog saveza',
+  `ID_SAVEZ` varchar(50) CHARACTER SET utf8 COLLATE utf8_croatian_ci NOT NULL COMMENT 'ID Kluba kod sportskog saveza',
   `ID_LOGO` int(11) NOT NULL COMMENT 'Logo će biti smješten u posebnom spremniku sa ID',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Izbacivanje podataka za tablicu `Klub`
 --
 
 INSERT INTO `Klub` (`ID`, `IME_KLUBA`, `ID_SPORT`, `ID_SAVEZ`, `ID_LOGO`) VALUES
-(1, 'ŠPILJA 94', 1, '', 0);
+(1, 'Špilja 94', 1, '', 0),
+(2, 'Danče', 1, '', 0);
 
 -- --------------------------------------------------------
 
@@ -48,12 +52,13 @@ INSERT INTO `Klub` (`ID`, `IME_KLUBA`, `ID_SPORT`, `ID_SAVEZ`, `ID_LOGO`) VALUES
 -- Tablična struktura za tablicu `Kontakti`
 --
 
+DROP TABLE IF EXISTS `Kontakti`;
 CREATE TABLE IF NOT EXISTS `Kontakti` (
-  `ID` int(11) NOT NULL COMMENT 'ID korisnici',
-  `mail` varchar(50) NOT NULL COMMENT 'email za kontakt',
-  `mobitel` varchar(15) NOT NULL COMMENT 'mobitel za sms',
+  `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID korisnici',
+  `mail` varchar(50) CHARACTER SET utf8 COLLATE utf8_croatian_ci NOT NULL COMMENT 'email za kontakt',
+  `mobitel` varchar(15) CHARACTER SET utf8 COLLATE utf8_croatian_ci NOT NULL COMMENT 'mobitel za sms',
   UNIQUE KEY `ID` (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Izbacivanje podataka za tablicu `Kontakti`
@@ -69,15 +74,16 @@ INSERT INTO `Kontakti` (`ID`, `mail`, `mobitel`) VALUES
 -- Tablična struktura za tablicu `Korisnici`
 --
 
+DROP TABLE IF EXISTS `Korisnici`;
 CREATE TABLE IF NOT EXISTS `Korisnici` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Ime` varchar(50) NOT NULL,
-  `Prezime` varchar(50) NOT NULL,
+  `Ime` varchar(50) CHARACTER SET utf8 COLLATE utf8_croatian_ci NOT NULL,
+  `Prezime` varchar(50) CHARACTER SET utf8 COLLATE utf8_croatian_ci NOT NULL,
   `UlogeID` int(11) NOT NULL,
-  `Login` varchar(20) NOT NULL,
-  `Password` varchar(20) NOT NULL,
+  `Login` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `Password` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Izbacivanje podataka za tablicu `Korisnici`
@@ -93,11 +99,12 @@ INSERT INTO `Korisnici` (`ID`, `Ime`, `Prezime`, `UlogeID`, `Login`, `Password`)
 -- Tablična struktura za tablicu `Sport`
 --
 
+DROP TABLE IF EXISTS `Sport`;
 CREATE TABLE IF NOT EXISTS `Sport` (
-  `ID` int(11) NOT NULL,
-  `IME_SPORTA` varchar(100) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `IME_SPORTA` varchar(100) CHARACTER SET utf8 COLLATE utf8_croatian_ci NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Izbacivanje podataka za tablicu `Sport`
@@ -115,20 +122,21 @@ INSERT INTO `Sport` (`ID`, `IME_SPORTA`) VALUES
 -- Tablična struktura za tablicu `Uloge`
 --
 
+DROP TABLE IF EXISTS `Uloge`;
 CREATE TABLE IF NOT EXISTS `Uloge` (
-  `UID` int(11) NOT NULL,
-  `Uloga` text NOT NULL,
+  `UID` int(11) NOT NULL AUTO_INCREMENT,
+  `Uloga` text CHARACTER SET utf8 COLLATE utf8_croatian_ci NOT NULL,
   PRIMARY KEY (`UID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Uloge korisnika';
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Uloge korisnika' AUTO_INCREMENT=4 ;
 
 --
 -- Izbacivanje podataka za tablicu `Uloge`
 --
 
 INSERT INTO `Uloge` (`UID`, `Uloga`) VALUES
-(0, 'Gost'),
 (1, 'Korisnik'),
-(2, 'Administrator');
+(2, 'Administrator'),
+(3, 'Gost');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
