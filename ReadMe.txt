@@ -1,4 +1,7 @@
-﻿16.12.2014:
+﻿21.12.2014:
+	Učitavanje kluba kao array objekata.
+
+16.12.2014:
 	Bug je pronađen - ne postoji objekt sa podacima u scope fragmenta.
 	OnCreateView se izvršava prije OnCreate!
 
